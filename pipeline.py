@@ -107,8 +107,7 @@ pipeline = Pipeline(
       target = ConfigInterpolation("fos.textfiles.com::alardland/warrior/yahooblog/%s/", downloader),
       target_source_path = ItemInterpolation("%(data_dir)s/"),
       files = [
-        ItemInterpolation("%(data_dir)s/%(warc_file_base)s.warc.gz"),
-        ItemInterpolation("%(data_dir)s/%(warc_file_base)s.usernames.txt")
+        ItemInterpolation("%(data_dir)s/%(warc_file_base)s.warc.gz")
       ],
       extra_args = [
         "--recursive",

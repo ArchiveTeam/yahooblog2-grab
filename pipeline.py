@@ -74,6 +74,7 @@ pipeline = Pipeline(
       "-U", USER_AGENT,
       "-nv",
       "-o", ItemInterpolation("%(item_dir)s/wget.log"),
+      "--lua-script", "stats.lua",
       "--no-check-certificate",
       "--directory-prefix", ItemInterpolation("%(item_dir)s/files"),
       "--force-directories",

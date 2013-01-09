@@ -25,7 +25,7 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.0.10"):
 
 
 USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
-VERSION = "20130108.01"
+VERSION = "20130109.01"
 
 class PrepareDirectories(SimpleTask):
   def __init__(self):
@@ -105,7 +105,8 @@ pipeline = Pipeline(
   MoveFiles(),
   LimitConcurrent(NumberConfigValue(min=1, max=4, default="1", name="shared:rsync_threads", title="Rsync threads", description="The maximum number of concurrent uploads."),
     RsyncUpload(
-      target = ConfigInterpolation("fos.textfiles.com::alardland/warrior/yahooblog/%s/", downloader),
+#     target = ConfigInterpolation("fos.textfiles.com::alardland/warrior/yahooblog/%s/", downloader),
+      target = ConfigInterpolation("tracker.archiveteam.org::yahooblog/%s/", downloader),
       target_source_path = ItemInterpolation("%(data_dir)s/"),
       files = [
         ItemInterpolation("%(data_dir)s/%(warc_file_base)s.warc.gz")

@@ -25,7 +25,8 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.0.10"):
 
 
 USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
-VERSION = "20130109.01"
+USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+VERSION = "20130109.02"
 
 class PrepareDirectories(SimpleTask):
   def __init__(self):
@@ -74,11 +75,12 @@ pipeline = Pipeline(
       "-U", USER_AGENT,
       "-nv",
       "-o", ItemInterpolation("%(item_dir)s/wget.log"),
-      "--lua-script", "stats.lua",
+      "--lua-script", "stats_retry999.lua",
       "--no-check-certificate",
       "--directory-prefix", ItemInterpolation("%(item_dir)s/files"),
       "--force-directories",
       "--adjust-extension",
+      "--referer", "http://blog.yahoo.com/explorer/vn",
       "-e", "robots=off",
       "-r", "--level=inf", "--no-remove-listing",
       "--page-requisites", "--span-hosts",

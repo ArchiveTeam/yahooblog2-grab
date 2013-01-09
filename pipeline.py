@@ -26,7 +26,7 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.0.10"):
 
 USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
 USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-VERSION = "20130109.03"
+VERSION = "20130109.04"
 
 class PrepareDirectories(SimpleTask):
   def __init__(self):
@@ -85,7 +85,7 @@ pipeline = Pipeline(
       "-r", "--level=inf", "--no-remove-listing",
       "--page-requisites", "--span-hosts",
       "--accept-regex", ItemInterpolation(r'http://(blog\.yahoo\.com/%(item_name)s|[^/]+.yimg.com)/|\.(jpg|png|gif|css|js)$'),
-      "--reject-regex", r'\\\\',
+      "--reject-regex", '[\\\\"\']',
       "--timeout", "60",
       "--tries", "20",
       "--waitretry", "5",

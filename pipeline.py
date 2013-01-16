@@ -26,7 +26,7 @@ if StrictVersion(seesaw.__version__) < StrictVersion("0.0.10"):
 
 USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27"
 USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-VERSION = "20130109.04"
+VERSION = "20130116.01"
 
 class PrepareDirectories(SimpleTask):
   def __init__(self):

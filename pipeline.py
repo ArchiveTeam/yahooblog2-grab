@@ -85,7 +85,7 @@ pipeline = Pipeline(
       "-r", "--level=inf", "--no-remove-listing",
       "--page-requisites", "--span-hosts",
       "--accept-regex", ItemInterpolation(r'http://(blog\.yahoo\.com/%(item_name)s|[^/]+.yimg.com)/|\.(jpg|png|gif|css|js)$'),
-      "--reject-regex", '.wikipedia.org|[\\\\"\']',
+      "--reject-regex", '\.wikipedia\.org|[\\\\"\']',
       "--timeout", "60",
       "--tries", "20",
       "--waitretry", "5",

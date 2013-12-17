@@ -14,7 +14,7 @@ end
 
 
 wget.callbacks.httploop_result = function(url, err, http_stat)
-  local sleep_time = 20
+  local sleep_time = 60
   local status_code = http_stat["statcode"]
 
   if status_code >= 500 then
@@ -26,7 +26,7 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
     return wget.actions.CONTINUE
   else
     -- We're okay; sleep a bit (if we have to) and continue
-    local sleep_time = 1.0 * (math.random(75, 125) / 100.0)
+    local sleep_time = 2.0 * (math.random(75, 125) / 100.0)
 
     if string.match(url["url"], "yimg%.com") then
       -- We should be able to go fast on images since that's what a web browser does

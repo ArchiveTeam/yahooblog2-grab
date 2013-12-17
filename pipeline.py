@@ -37,7 +37,7 @@ if not WGET_LUA:
 
 
 USER_AGENT = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-VERSION = "20131215.00"
+VERSION = "20131217.00"
 TRACKER_ID = 'yahooblog'
 TRACKER_HOST = 'tracker.archiveteam.org'
 

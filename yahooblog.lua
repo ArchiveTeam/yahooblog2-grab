@@ -12,6 +12,14 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   return {}
 end
 
+wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_parsed, iri, verdict, reason)
+  local url = urlpos["url"]["url"]
+  if string.match(url, "/abuse%?") then
+    return false
+  end
+
+  return verdict
+end
 
 wget.callbacks.httploop_result = function(url, err, http_stat)
   local sleep_time = 60

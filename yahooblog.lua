@@ -34,6 +34,13 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
     io.stdout:write("\nYahoo!!! (code "..http_stat.statcode.."). Sleeping for ".. sleep_time .." seconds.\n")
     io.stdout:flush()
 
+    -- issue #2, skip broken rss feed
+    if status_code == 500 and string.match(url["url"], "/rss") then
+      io.stdout:write("(rss skip)\n")
+      io.stdout:flush()
+      return wget.actions.EXIT
+    end
+
     -- Note that wget has its own linear backoff to this time as well
     os.execute("sleep " .. sleep_time)
     return wget.actions.CONTINUE

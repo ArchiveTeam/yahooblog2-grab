@@ -57,7 +57,7 @@ USER_AGENTS = ('Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l
 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36',
 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)',)
 
-VERSION = "20131224.01"
+VERSION = "20131224.80"
 TRACKER_ID = 'yahooblog'
 TRACKER_HOST = 'tracker.archiveteam.org'
 
@@ -112,7 +112,7 @@ wget_args = [
     "--accept-regex", ItemInterpolation(r'http://(blog\.yahoo\.com/%(item_name)s|[^/]+.yimg.com)/|\.(jpg|png|gif|css|js)$'),
     "--domains", "yimg.com,blog.yahoo.com",
     "--tries", "inf",
-    "--waitretry", "3600",
+    "--waitretry", "1",
     "--warc-file", ItemInterpolation("%(item_dir)s/%(warc_file_base)s"),
     "--warc-header", "operator: Archive Team",
     "--warc-header", "yahooblog2-dld-script-version: " + VERSION,

@@ -62,3 +62,12 @@ wget.callbacks.httploop_result = function(url, err, http_stat)
   end
 end
 
+wget.callbacks.lookup_host = function(host)
+  if string.match(host, "blog%.yahoo%.com") then
+    local table = {"66.196.66.157", "66.196.66.156", "66.196.66.212", "66.196.66.213"}
+    return table[ math.random( #table ) ]
+  else
+    -- use normal DNS ip
+    return nil
+  end
+end

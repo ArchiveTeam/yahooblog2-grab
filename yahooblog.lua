@@ -18,6 +18,11 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
     return false
   end
 
+  -- don't go chasin' waterfalls
+  if string.match(url, "http:%%5C/%%5C/blog%.yahoo%.com") then
+    return false
+  end
+
   -- already in wayback machine
   if string.match(url, "cosmos%.bcst%.yahoo%.com/player/media/swf/FLVVideoSolo%.swf") then
     return false

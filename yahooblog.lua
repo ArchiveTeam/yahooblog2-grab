@@ -23,6 +23,10 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
     return false
   end
 
+  if string.match(url, "\\") then
+    return false
+  end
+
   -- already in wayback machine
   if string.match(url, "cosmos%.bcst%.yahoo%.com/player/media/swf/FLVVideoSolo%.swf") then
     return false

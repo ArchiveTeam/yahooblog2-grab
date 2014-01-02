@@ -27,6 +27,23 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
     return false
   end
 
+  -- don't get all kinds of redundant content that we don't have time for
+  if string.match(url, "/tag/") then
+    return false
+  end
+
+  if string.match(url, "/date/") then
+    return false
+  end
+
+  if string.match(url, "/category/") then
+    return false
+  end
+
+  if string.match(url, "%?compact") then
+    return false
+  end
+
   -- already in wayback machine
   if string.match(url, "cosmos%.bcst%.yahoo%.com/player/media/swf/FLVVideoSolo%.swf") then
     return false

@@ -40,6 +40,10 @@ wget.callbacks.download_child_p = function(urlpos, parent, depth, start_url_pars
     return false
   end
 
+  if string.match(url, "/uncategorized") then
+    return false
+  end
+
   if string.match(url, "%?compact") then
     return false
   end
